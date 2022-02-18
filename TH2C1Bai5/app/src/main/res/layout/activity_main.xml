@@ -51,7 +51,7 @@
             android:id="@+id/edtSoluong"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:inputType="number"
+
             android:textSize="20sp" />
     </LinearLayout>
     <CheckBox

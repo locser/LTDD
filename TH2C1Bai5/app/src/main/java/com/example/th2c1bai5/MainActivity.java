@@ -43,8 +43,10 @@ public class MainActivity extends AppCompatActivity {
         btnTinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    int soluong = Integer.parseInt(edtSoluong.getText().toString().trim());
+
+                String strSoluong= (edtSoluong.getText().toString());
+                int soluong= Integer.parseInt(strSoluong);
+//                Toast.makeText(MainActivity.this, "n1", Toast.LENGTH_SHORT).show();
                     int giamgia= 0;
                     if (cbxVip.isChecked()){
                         giamgia=10;
@@ -52,13 +54,10 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     int thanhtien = soluong * giasach * (100-giamgia) /100;
-                    tvThanhtien.setText(thanhtien);
+                    tvThanhtien.setText(String.valueOf(thanhtien));
                     soKH++;
                     doanhthu+= thanhtien;
-                }catch (Exception e){
-                    Toast.makeText(MainActivity.this, "Hãy nhập đúng số lượng", Toast.LENGTH_SHORT).show();
-                    e.printStackTrace();
-                }
+
             }
         });
 
@@ -73,9 +72,9 @@ public class MainActivity extends AppCompatActivity {
         btnThongke.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvTongkh.setText(soKH);
-                tvTongkhVip.setText(soKHVIP);
-                tvDoanhthu.setText(doanhthu);
+                tvTongkh.setText(String.valueOf(soKH));
+                tvTongkhVip.setText(String.valueOf(soKHVIP));
+                tvDoanhthu.setText(String.valueOf(doanhthu));
             }
         });
         btnThoat.setOnClickListener(new View.OnClickListener() {
