@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8AD314"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/btnTuChoi"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="114dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="376dp"
+        android:backgroundTint="#D3CB41"
+        android:gravity="center"
+        android:text="Máy với máy"
+        android:textSize="20sp"
+        tools:layout_marginLeft="120dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="0dp"
+        android:background="#8AD314"
+        android:gravity="center"
+        android:text="BÀI CÀO"
+        android:textColor="#FF0000"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="155dp"
+        android:background="#8AD314"
+        android:gravity="center"
+        android:text="Chọn chế đội chơi"
+        android:textColor="#6F1BA5"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-2dp"
+        android:layout_marginTop="312dp">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnChoiVoiMay"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="114dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="276dp"
+        android:backgroundTint="#D3CB41"
+        android:gravity="center"
+        android:text="Chơi với máy"
+        android:textSize="20sp"
+        tools:layout_marginLeft="120dp" />
+</RelativeLayout>

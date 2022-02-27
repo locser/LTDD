@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1756A1"
+    tools:context=".ChoiVoiMayActivity">
+
+    <ImageView
+        android:id="@+id/imgBot1"
+        android:layout_width="60dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/b1fv" />
+
+    <ImageView
+        android:id="@+id/imgBot2"
+        android:layout_width="60dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toEndOf="@+id/imgBot1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/b1fv" />
+
+    <ImageView
+        android:id="@+id/imgBot3"
+        android:layout_width="60dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toEndOf="@+id/imgBot2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/b1fv" />
+
+    <ImageView
+        android:id="@+id/imgPlayer1"
+        android:layout_width="60dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgDaiDien"
+        app:srcCompat="@drawable/b1fv" />
+
+    <ImageView
+        android:id="@+id/imgPlayer2"
+        android:layout_width="60dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgPlayer1"
+        app:srcCompat="@drawable/b1fv" />
+
+    <ImageView
+        android:id="@+id/imgPlayer3"
+        android:layout_width="60dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgPlayer2"
+        app:srcCompat="@drawable/b1fv" />
+
+    <ImageView
+        android:id="@+id/imgDaiDien"
+        android:layout_width="89dp"
+        android:layout_height="90dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/imgdaidien" />
+
+    <ImageView
+        android:id="@+id/imgBot"
+        android:layout_width="89dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="320dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/iccomputer" />
+
+    <TextView
+        android:id="@+id/tvTen"
+        android:layout_width="102dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="4dp"
+        android:gravity="center"
+        android:text="Loc"
+        android:textColor="#D0D618"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/imgDaiDien"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btnChiaBai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="348dp"
+        android:backgroundTint="#DDCD34"
+        android:text="Chia bài nào"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTiSo"
+        android:layout_width="130dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="305dp"
+        android:layout_marginEnd="141dp"
+        android:gravity="center"
+        android:text="0-0"
+        android:textColor="#F8E7E7"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgTiSoPlayer"
+        android:layout_width="53dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="304dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icperson" />
+
+    <ImageView
+        android:id="@+id/imgTiSoBot"
+        android:layout_width="53dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="304dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/iccomputer" />
+
+    <Button
+        android:id="@+id/btnDung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="320dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="1dp"
+        android:backgroundTint="#1756A1"
+        android:drawableEnd="@drawable/icexit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imgPlayer3"
+        app:layout_constraintTop_toBottomOf="@+id/imgTiSoBot"
+        app:layout_constraintVertical_bias="0.285" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="148dp"
+        android:text="Time: "
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBot1" />
+
+    <TextView
+        android:id="@+id/tvThangThua"
+        android:layout_width="411dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="96dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnChiaBai" />
+
+    <TextView
+        android:id="@+id/tvKqBot"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="158dp"
+        android:textColor="#D5AF26"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBot1" />
+
+    <TextView
+        android:id="@+id/tvKqPlayer"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="158dp"
+        android:textColor="#D5AF26"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvThangThua" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
