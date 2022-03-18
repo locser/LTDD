@@ -13,8 +13,8 @@
         android:orientation="horizontal">
         <Button
             android:id="@+id/btnImg"
-            android:layout_width="wrap_content"
-            android:layout_height="106dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:gravity="center"
             android:text="Chon anh" />
 
@@ -24,7 +24,8 @@
             android:layout_height="106dp"
             android:background="#FFFFFF"
             android:gravity="fill_vertical"
-            android:scaleType="center" />
+            android:scaleType="center"
+            android:layout_marginLeft="10dp"/>
     </LinearLayout>
 
 
@@ -36,13 +37,13 @@
         <EditText
             android:id="@+id/edtMa"
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:hint="Nhập mã" />
 
         <EditText
             android:id="@+id/edtTen"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:hint="Nhập Tên" />
 
     </LinearLayout>
@@ -59,7 +60,9 @@
 
         <RadioGroup
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <RadioButton
                 android:id="@+id/rbtnNam"
                 android:layout_width="wrap_content"
@@ -89,7 +92,7 @@
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="40dp" />
 
     </LinearLayout>
 
@@ -116,6 +119,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Truy vấn" />
+        <Button
+            android:id="@+id/btnLamMoi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Làm mới" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnGhiFile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ghi File" />
+
+        <Button
+            android:id="@+id/btnDocFile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Doc File" />
+
 
     </LinearLayout>
 

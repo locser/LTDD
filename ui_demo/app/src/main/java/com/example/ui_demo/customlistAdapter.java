@@ -1,6 +1,7 @@
 package com.example.ui_demo;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,11 +50,15 @@ public class customlistAdapter extends BaseAdapter {
         TextView tvid= view.findViewById(R.id.tvId);
         TextView tvpb = view.findViewById(R.id.tvPB);
 
-        tvid.setText(listnv.get(i).getMaNV());
-        tvten.setText(listnv.get(i).getTenNV());
-        tvpb.setText(listnv.get(i).getDonvi());
-        imgdaidien.setImageDrawable(listnv.get(i).getD());
-
+        tvid.setText("ID: "+ listnv.get(i).getMaNV());
+        tvten.setText("Tên: "+ listnv.get(i).getTenNV());
+        tvpb.setText("PB: "+ listnv.get(i).getDonvi());
+        String uri= listnv.get(i).getImageUri();
+        if((!uri.equals(""))){
+            imgdaidien.setImageURI(Uri.parse(uri));
+        }else{
+            imgdaidien.setImageResource(R.drawable.iconprivatepeople);
+        }
         return view;
     }
 }

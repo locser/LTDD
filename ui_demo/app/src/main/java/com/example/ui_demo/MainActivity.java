@@ -1,17 +1,14 @@
 package com.example.ui_demo;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,45 +19,36 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import java.io.File;
-import java.io.IOException;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     ListView lv;
-    Button btnIMG, btnthem, btnsua,btntruyvan;
+    Button btnIMG, btnthem, btnsua,btntruyvan, btnlammoi, btnghifile, btndocfile;
     EditText edtten, edtma;
     RadioButton rbtnNam, rbtnNu;
     Spinner spinner;
-    ArrayList<NhanVien> listNV, listNV2;
+    ArrayList<NhanVien> listNV = new ArrayList<>();
     String[] listPB;
     String donvi;
     //duong dan anh
     Uri imageUri;
     ImageView imgHinh;
     List<Uri> listImageUri;
+    String filename= "uidemo.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        lv = findViewById(R.id.listview);
-        ;
-        imgHinh = findViewById(R.id.imgHinh);
-        btnIMG = findViewById(R.id.btnImg);
-        btnthem = findViewById(R.id.btnThem);
-        btnsua = findViewById(R.id.btnSua);
-        btntruyvan = findViewById(R.id.btnTruyvan);
-        edtten = findViewById(R.id.edtTen);
-        edtma = findViewById(R.id.edtMa);
-        rbtnNam = findViewById(R.id.rbtnNam);
-        rbtnNu = findViewById(R.id.rbtnNu);
-        spinner = findViewById(R.id.spinner);
+        khaibao();
 
         listNV = new ArrayList<NhanVien>();
         listPB = getResources().getStringArray(R.array.donvi_list);
@@ -85,94 +73,6 @@ public class MainActivity extends AppCompatActivity {
         customlistAdapter adapterNV = new customlistAdapter(this, listNV);
         lv.setAdapter(adapterNV);
 
-
-        btnthem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                
-                String maso = edtma.getText().toString();
-                String ten = edtten.getText().toString();
-                if((maso.length() >0) && (ten.length()>0) ){
-                    String gioitinh = (rbtnNam.isChecked()) ? "Nam" : "Nữ";
-
-                    Drawable d = imgHinh.getDrawable();
-
-                    NhanVien nv = new NhanVien(maso, ten, gioitinh, donvi, d );
-
-
-                    listNV.add(nv);
-                    lv.deferNotifyDataSetChanged();
-                }else {
-                    Toast.makeText(MainActivity.this, "Hãy Nhập đầy đủ thông tin của nhân viên", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        btnsua.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int i= lv.getSelectedItemPosition();
-                if(i<=0 || i >listNV.size()){
-                    Toast.makeText(MainActivity.this, "Hãy chọn một nhân viên nào đóa đi nè!", Toast.LENGTH_SHORT).show();
-                }else{
-                    String maso = edtma.getText().toString();
-                    String ten = edtten.getText().toString();
-                    if((maso.length() >0) && (ten.length()>0) ){
-                        String gioitinh = (rbtnNam.isChecked()) ? "Nam" : "Nữ";
-
-                        Drawable d = imgHinh.getDrawable();
-
-                        listNV.get(i).setMaNV(maso);
-                        listNV.get(i).setTenNV(ten);
-                        listNV.get(i).setGioitinh(gioitinh);
-                        listNV.get(i).setDonvi(donvi);
-                        listNV.get(i).setD(d);
-
-                        lv.deferNotifyDataSetChanged();
-                    }else {
-                        Toast.makeText(MainActivity.this, "Hãy Nhập đầy đủ thông tin của nhân viên", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
-
-
-        btntruyvan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String maso = edtma.getText().toString();
-                String ten = edtten.getText().toString();
-                int i=-1;
-                if((maso.length() >0)){
-                    for (int j = 0 ; j< listNV.size(); j++){
-                        if(maso.equals(listNV.get(j).getMaNV()))
-                            i=j;
-                    }
-                    if(i!= -1){
-//
-                        Toast.makeText(MainActivity.this, "Tìm thấy nhân viên", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(MainActivity.this, "Không Tìm thấy nhân viên", Toast.LENGTH_SHORT).show();
-                    }
-                }else{
-                    if((ten.length() >0)){
-                        for (int j = 0 ; j< listNV.size(); j++){
-                            if(ten.equals(listNV.get(j).getTenNV()))
-                                i=j;
-                        }
-                        if(i!= -1){
-
-                            Toast.makeText(MainActivity.this, "Tìm thấy nhân viên", Toast.LENGTH_SHORT).show();
-                        }else{
-                            Toast.makeText(MainActivity.this, "Không Tìm thấy nhân viên", Toast.LENGTH_SHORT).show();
-                        }
-                    }else{
-                        Toast.makeText(MainActivity.this, "Hãy nhập 1 hoặc 2 dữ liệu", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
-
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -191,7 +91,151 @@ public class MainActivity extends AppCompatActivity {
                         spinner.setSelection(j);
                     }
                 }
-                imgHinh.setImageDrawable(nv.getD());
+                String uri= nv.getImageUri();
+
+                if (!(uri.equals("")))
+                    imgHinh.setImageURI(Uri.parse(uri));
+                else{
+                    imgHinh.setImageResource(R.drawable.iconprivatepeople);
+                }
+            }
+        });
+
+        btnthem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+                String maso = edtma.getText().toString();
+                String ten = edtten.getText().toString();
+                if((maso.length() >0) && (ten.length()>0) ){
+                    String gioitinh = (rbtnNam.isChecked()) ? "Nam" : "Nữ";
+
+                    String imguri ="" ;
+//                    if(!(imageUri.toString().equals(""))){
+//                        imguri= imageUri.toString();
+//                    }
+                    if (imageUri != null && !imageUri.equals(Uri.EMPTY)) {
+                        //doTheThing()
+                        imguri= imageUri+"";
+                    } else {
+                        //followUri is null or empty
+                    }
+
+                    NhanVien nv = new NhanVien(maso, ten, gioitinh, donvi, imguri );
+                    listNV.add(nv);
+                    adapterNV.notifyDataSetChanged();
+                }else {
+                    Toast.makeText(MainActivity.this, "Hãy Nhập đầy đủ thông tin của nhân viên", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btnsua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder =  new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("THông báo").setMessage("Bạn muốn sửa nhân viên này chứ?");
+                builder.setPositiveButton("Sửa", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String maso = edtma.getText().toString();
+                        String ten = edtten.getText().toString();
+
+                        if((maso.length() >0) && (ten.length()>0) ){
+                            String gioitinh = (rbtnNam.isChecked()) ? "Nam" : "Nữ";
+
+                            String imguri ="" ;
+//                    if(!(imageUri.toString().equals(""))){
+//                        imguri= imageUri.toString();
+//                    }
+                            if (imageUri != null && !imageUri.equals(Uri.EMPTY)) {
+                                //doTheThing()
+                                imguri= imageUri+"";
+                            } else {
+                                //followUri is null or empty
+                            }
+                            int j = timkiemNV(maso);
+                            if(j>0){
+                                listNV.get(j).setMaNV(maso);
+                                listNV.get(j).setTenNV(ten);
+                                listNV.get(j).setGioitinh(gioitinh);
+                                listNV.get(j).setDonvi(donvi);
+                                listNV.get(j).setImageUri(imguri);
+
+                                adapterNV.notifyDataSetChanged();
+                                Toast.makeText(MainActivity.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(MainActivity.this, "Sửa thất bại", Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        }else {
+                            Toast.makeText(MainActivity.this, "Hãy Nhập đầy đủ thông tin của nhân viên", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+                builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                });
+
+                builder.create().show();
+            }
+        });
+
+
+        btntruyvan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ArrayList<NhanVien>  lnv  = new ArrayList<>();
+
+                String maso = edtma.getText().toString();
+                String ten = edtten.getText().toString();
+
+                if((maso.length() >0)){
+                    for (int j = 0 ; j< listNV.size(); j++){
+                        if(maso.equals(listNV.get(j).getMaNV()))
+                            lnv.add(listNV.get(j));
+                    }
+
+                    if(lnv.size()>0){
+                        Toast.makeText(MainActivity.this, "Tìm thấy nhân viên", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(MainActivity.this, "Không Tìm thấy nhân viên", Toast.LENGTH_SHORT).show();
+                    }
+
+                    customlistAdapter adapterNV = new customlistAdapter(MainActivity.this, lnv);
+                    lv.setAdapter(adapterNV);
+                }else{
+                    if((ten.length() >0)){
+                        for (int j = 0 ; j< listNV.size(); j++){
+                            if(ten.equals(listNV.get(j).getTenNV()))
+                                lnv.add(listNV.get(j));
+                        }
+
+                        if(lnv.size()>0){
+                            Toast.makeText(MainActivity.this, "Tìm thấy nhân viên", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(MainActivity.this, "Không Tìm thấy nhân viên", Toast.LENGTH_SHORT).show();
+                        }
+
+                        customlistAdapter adapterNV = new customlistAdapter(MainActivity.this, lnv);
+                        lv.setAdapter(adapterNV);
+                    }else{
+                        Toast.makeText(MainActivity.this, "Hãy nhập 1 hoặc 2 dữ liệu", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+        btnlammoi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                customlistAdapter adapterNV = new customlistAdapter(MainActivity.this, listNV);
+                lv.setAdapter(adapterNV);
             }
         });
 //        btnIMG.setOnClickListener(new View.OnClickListener() {
@@ -224,6 +268,59 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
 
+        /**
+         *This loop is not correct. readObject() does not return null at end of stream. It can do that any time you wrote a null. At end of stream it throws EOFException. So:
+         */
+        btndocfile.setOnClickListener(new View.OnClickListener() {
+            ArrayList<NhanVien> lnv = new ArrayList<>();
+            @Override
+            public void onClick(View view) {
+                try {
+                    FileInputStream fin = openFileInput(filename);
+                    ObjectInputStream o = new ObjectInputStream(fin);
+
+                    NhanVien n ;
+                    for (;;) {
+                        try {
+                            n = (NhanVien) o.readObject();
+                            lnv.add(n);
+                        }
+                        catch (EOFException exc) {
+                            break;
+                        }
+                    }
+
+                    Toast.makeText(MainActivity.this, "Đọc file hoàn tất!", Toast.LENGTH_SHORT).show();
+                    listNV = lnv;
+                    customlistAdapter adapterNV = new customlistAdapter(MainActivity.this, listNV);
+                    lv.setAdapter(adapterNV);
+                } catch (Exception e) {
+                    Toast.makeText(MainActivity.this, "Đọc file không thành công!", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        btnghifile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    FileOutputStream fout = openFileOutput(filename, Context.MODE_PRIVATE);
+                    ObjectOutputStream o = new ObjectOutputStream(fout);
+
+                    for(NhanVien n : listNV){
+                        o.writeObject(n);
+                    }
+                    o.close();
+                    Toast.makeText(MainActivity.this, "Ghi thành công: " + getFilesDir(), Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Toast.makeText(MainActivity.this, "Ghi xuống file không thành công!", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
         btnIMG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -234,35 +331,77 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void khaibao() {
+
+        lv = findViewById(R.id.listview);
+        imgHinh = findViewById(R.id.imgHinh);
+        btnIMG = findViewById(R.id.btnImg);
+        btnthem = findViewById(R.id.btnThem);
+        btnlammoi = findViewById(R.id.btnLamMoi);
+        btnghifile = findViewById(R.id.btnGhiFile);
+        btndocfile = findViewById(R.id.btnDocFile);
+        btnsua = findViewById(R.id.btnSua);
+        btntruyvan = findViewById(R.id.btnTruyvan);
+        edtten = findViewById(R.id.edtTen);
+        edtma = findViewById(R.id.edtMa);
+        rbtnNam = findViewById(R.id.rbtnNam);
+        rbtnNu = findViewById(R.id.rbtnNu);
+        spinner = findViewById(R.id.spinner);
+    }
+
+
+    public int timkiemNV(String maso){
+        for(int i = 0; i<listNV.size(); i++){
+            if(listNV.get(i).getMaNV().equals(maso))
+                return i;
+        }
+        return -1;
+
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == 999){
             imageUri = data.getData();
+
 //            File f = new File(getRealPathFromURI(path));
-        //    Drawable d = Drawable.createFromPath(f.getAbsolutePath());
+            //    Drawable d = Drawable.createFromPath(f.getAbsolutePath());
             //myalyout.setBackground(d);
 
-            Drawable d = UriToDrawable(imageUri);
-            imgHinh.setImageDrawable(d);
+            imgHinh.setImageURI(imageUri);
         }
     }
 
-    public Drawable UriToDrawable(Uri imageUri){
-        File f = new File(getRealPathFromURI(imageUri));
-        Drawable d = Drawable.createFromPath(f.getAbsolutePath());
-        return d;
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (resultCode == RESULT_OK && requestCode == 999){
+//            imageUri = data.getData();
+////            File f = new File(getRealPathFromURI(path));
+//        //    Drawable d = Drawable.createFromPath(f.getAbsolutePath());
+//            //myalyout.setBackground(d);
+//
+//            Drawable d = UriToDrawable(imageUri);
+//            imgHinh.setImageDrawable(d);
+//        }
+//    }
 
-
-    private String getRealPathFromURI(Uri contentURI) {
-        Cursor cursor = getContentResolver().query(contentURI, null, null, null, null);
-        if (cursor == null) { // Source is Dropbox or other similar local file path
-            return contentURI.getPath();
-        } else {
-            cursor.moveToFirst();
-            int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
-            return cursor.getString(idx);
-        }
-    }
+//    public Drawable UriToDrawable(Uri imageUri){
+//        File f = new File(getRealPathFromURI(imageUri));
+//        Drawable d = Drawable.createFromPath(f.getAbsolutePath());
+//        return d;
+//    }
+//
+//
+//    private String getRealPathFromURI(Uri contentURI) {
+//        Cursor cursor = getContentResolver().query(contentURI, null, null, null, null);
+//        if (cursor == null) { // Source is Dropbox or other similar local file path
+//            return contentURI.getPath();
+//        } else {
+//            cursor.moveToFirst();
+//            int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+//            return cursor.getString(idx);
+//        }
+//    }
 }

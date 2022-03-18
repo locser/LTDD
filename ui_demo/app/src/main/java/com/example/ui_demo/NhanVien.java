@@ -3,19 +3,34 @@ package com.example.ui_demo;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 
-public class NhanVien {
+import java.io.Serializable;
+import java.util.Objects;
+
+public class NhanVien implements Serializable {
+
     String maNV;
     String tenNV;
     String gioitinh;
     String donvi;
-    Drawable d;
+    String imageUri;
 
-    public NhanVien(String maNV, String tenNV, String gioitinh, String donvi, Drawable d) {
+    public NhanVien() {
+    }
+
+    public NhanVien(String maNV, String tenNV, String gioitinh, String donvi, String imageUri) {
         this.maNV = maNV;
         this.tenNV = tenNV;
         this.gioitinh = gioitinh;
         this.donvi = donvi;
-        this.d= d;
+        this.imageUri = imageUri;
+    }
+
+    public String getImageUri() {
+        return imageUri;
+    }
+
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
     }
 
     public String getGioitinh() {
@@ -50,14 +65,6 @@ public class NhanVien {
         this.tenNV = tenNV;
     }
 
-    public Drawable getD() {
-        return d;
-    }
-
-    public void setD(Drawable d) {
-        this.d = d;
-    }
-
     @Override
     public String toString() {
         return "NhanVien{" +
@@ -65,6 +72,8 @@ public class NhanVien {
                 ", tenNV='" + tenNV +
                 ", gioitinh='" + gioitinh +
                 ", donvi='" + donvi +
+                ", imageUri='" + imageUri +
                 '}';
     }
+
 }

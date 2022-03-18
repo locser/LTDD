@@ -13,7 +13,7 @@
         android:layout_marginTop="3dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/iconprivatepeople" />
 
     <TextView
         android:id="@+id/tvId"
@@ -22,6 +22,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="9dp"
         android:text="TextView"
+        android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/imgdaidien"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,6 +33,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="21dp"
         android:text="TextView"
+        android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/imgdaidien"
         app:layout_constraintTop_toBottomOf="@+id/tvPB" />
 
@@ -42,6 +44,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="9dp"
         android:text="TextView"
+        android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/tvId"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
