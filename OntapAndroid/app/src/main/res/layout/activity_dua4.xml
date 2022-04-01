@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Dua4">
+
+    <ImageView
+        android:id="@+id/cimageView2"
+        android:layout_width="285dp"
+        android:layout_height="198dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/cbtnThoat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thoát"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/cbtnChoi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bắt đầu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ctvketqua" />
+
+    <TextView
+        android:id="@+id/ctvketqua"
+        android:layout_width="372dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Chọn một đường bất kì"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cimageView2" />
+
+    <SeekBar
+        android:id="@+id/cseekBar1"
+        android:layout_width="332dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbtvDiem"
+        android:thumb="@drawable/gaa"
+        />
+
+    <CheckBox
+        android:id="@+id/ccheckBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cseekBar1"
+        app:layout_constraintStart_toEndOf="@+id/cseekBar1"
+        app:layout_constraintTop_toTopOf="@+id/cseekBar1"
+        />
+
+    <SeekBar
+        android:id="@+id/cseekBar2"
+        android:layout_width="332dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cseekBar1"
+        android:thumb="@drawable/lion"/>
+
+    <CheckBox
+        android:id="@+id/ccheckBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cseekBar2"
+        app:layout_constraintStart_toEndOf="@+id/cseekBar2"
+        app:layout_constraintTop_toTopOf="@+id/cseekBar2" />
+
+    <SeekBar
+        android:id="@+id/cseekBar3"
+        android:layout_width="332dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cseekBar2"
+        android:thumb="@drawable/gifmot"/>
+
+    <CheckBox
+        android:id="@+id/ccheckBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cseekBar3"
+        app:layout_constraintStart_toEndOf="@+id/cseekBar3"
+        app:layout_constraintTop_toTopOf="@+id/cseekBar3" />
+
+    <SeekBar
+        android:id="@+id/cseekBar4"
+        android:layout_width="332dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cseekBar3"
+        android:thumb="@drawable/lion"/>
+
+    <CheckBox
+        android:id="@+id/ccheckBox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cseekBar4"
+        app:layout_constraintStart_toEndOf="@+id/cseekBar4"
+        app:layout_constraintTop_toTopOf="@+id/cseekBar4" />
+
+    <TextView
+        android:id="@+id/cbtvDiem"
+        android:layout_width="409dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="Điểm: "
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbtnChoi" />
+</androidx.constraintlayout.widget.ConstraintLayout>
