@@ -19,12 +19,17 @@ public class CustomAdapter extends BaseAdapter {
     Context context;
     LayoutInflater inflater;
     List<SanPham> ls= new ArrayList<>();
-    int positionselected=-1;
 
     public CustomAdapter(Context context, List<SanPham> ls) {
         this.context = context;
         this.ls = ls;
         this.inflater=LayoutInflater.from(context);
+
+    }
+
+    public CustomAdapter(LayoutInflater inflater, List<SanPham> ls) {
+        this.ls = ls;
+        this.inflater=inflater;
 
     }
 
@@ -58,14 +63,14 @@ public class CustomAdapter extends BaseAdapter {
         tvten.setText(ls.get(i).getTen());
         tvgia.setText(String.valueOf(ls.get(i).getGia()) + " đồng");
 
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context, ls.get(i).getTen(), Toast.LENGTH_SHORT).show();
-                positionselected =  i;
-                notifyDataSetChanged();
-            }
-        });
+//        view.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(context, ls.get(i).getTen(), Toast.LENGTH_SHORT).show();
+//                positionselected =  i;
+//                notifyDataSetChanged();
+//            }
+//        });
         return view;
     }
 }

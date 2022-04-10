@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/rimageView"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:contentDescription="TODO" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/rtvtensp"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:text="Sản phẩm"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                />
+            <ImageButton
+                android:id="@+id/rimgButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cart"
+                android:backgroundTint="@color/white"
+                 />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/rtvgia"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:text="Giá"
+            android:textColor="#FF0000"
+            android:textSize="16sp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:text="Loại sản phẩm:"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvgia" />
+
+            <TextView
+                android:id="@+id/rtvloaisp"
+                android:layout_width="268dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="12dp"
+                android:text="Hãy chọn sản phẩm"
+                android:paddingLeft="10dp"
+                android:textColor="#1060D6"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/tvgia" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:text="Dung tích:"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/rtvdungtich"
+                android:layout_width="268dp"
+                android:layout_height="30dp"
+                android:text="Hãy chọn sản phẩm"
+                android:paddingLeft="10dp"
+                android:textColor="#1060D6"
+                app:layout_constraintStart_toEndOf="@+id/textView1"
+                app:layout_constraintTop_toTopOf="@+id/textView1" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:textColor="#000000"
+                android:text="Thương hiệu:" />
+
+            <TextView
+                android:id="@+id/rtvthuonghieu"
+                android:layout_width="268dp"
+                android:layout_height="30dp"
+                android:text="Hãy chọn sản phẩm"
+                android:paddingLeft="10dp"
+                android:textColor="#1060D6"
+                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintTop_toTopOf="@+id/textView2" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:text="Nơi sản xuất:"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            <TextView
+                android:id="@+id/rtvnoisanxuat"
+                android:layout_width="268dp"
+                android:layout_height="30dp"
+                android:text="Hãy chọn sản phẩm"
+                android:paddingLeft="10dp"
+                android:textColor="#1060D6"
+                app:layout_constraintStart_toEndOf="@+id/textView3"
+                app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+
+        </LinearLayout>
+
+            <TextView
+                android:id="@+id/rtvthongtinbosung"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="16dp"
+                android:hint="Thông tin bổ sung"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="#000000"
+                android:paddingLeft="5dp"
+                app:layout_constraintTop_toBottomOf="@+id/tvnoisanxuat" />
+
+            <Button
+                android:id="@+id/rbtnthemgiohang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Thêm vào giỏ hàng"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                android:drawableEnd="@drawable/cart"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,8 +1,11 @@
 package com.example.listview_spinner;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 
-public class SanPham implements Serializable {
+public class SanPham{
     String ten;
     int gia;
     String loaisua;
@@ -86,4 +89,6 @@ public class SanPham implements Serializable {
     public void setNoisx(String noisx) {
         this.noisx = noisx;
     }
+
+
 }

@@ -3,9 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/HUULOC/AndroidStudioProjects/ListView_Spinner/app/src/main/res/layout-land/activity_multiple_fragment.xml" value="0.15564373897707232" />
+        <entry key="..\:/Users/HUULOC/AndroidStudioProjects/ListView_Spinner/app/src/main/res/layout-port/activity_multiple_fragment.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/HUULOC/AndroidStudioProjects/ListView_Spinner/app/src/main/res/layout/activity_chitiet_sp.xml" value="0.36875" />
         <entry key="..\:/Users/HUULOC/AndroidStudioProjects/ListView_Spinner/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/HUULOC/AndroidStudioProjects/ListView_Spinner/app/src/main/res/layout/activity_main2.xml" value="0.36875" />
+        <entry key="..\:/Users/HUULOC/AndroidStudioProjects/ListView_Spinner/app/src/main/res/layout/activity_multiple_fragment.xml" value="0.33" />
         <entry key="..\:/Users/HUULOC/AndroidStudioProjects/ListView_Spinner/app/src/main/res/layout/custom_grid.xml" value="0.36875" />
+        <entry key="..\:/Users/HUULOC/AndroidStudioProjects/ListView_Spinner/app/src/main/res/layout/fragment_left.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/HUULOC/AndroidStudioProjects/ListView_Spinner/app/src/main/res/layout/fragment_right.xml" value="0.33" />
+        <entry key="..\:/Users/HUULOC/AndroidStudioProjects/ListView_Spinner/app/src/main/res/layout/second_activity.xml" value="0.1" />
       </map>
     </option>
   </component>
